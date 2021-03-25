@@ -14,7 +14,7 @@ x,y=3,4;
 divmod(a,b); """나누기 b 의 몫과 나머지르 계산"""
 pow(x, y); """a 의 b승d"""
 
-fullsec = int(input("5264: "))
+fullsec = int(input("5264: ")) #왼쪽이 함수 오른쪽이 넣는값
 hour = (fullsec // 60) // 60
 minute = (fullsec // 60) % 60
 seconds = fullsec % 60
@@ -72,3 +72,61 @@ else:
     discount = price *0.1
 final_price = price - discount 
 print("최종가격 : %.2f만원" %final_price ) #뒤에있는 값을 앞으로 가져와 출력  f는 실수값 가져올때  d는 정수값 s 는 문자 
+
+hours =float(input("9:")) #근무시간 7시간이넘을 경우 ,넘은시간에 대해 시간당 임금을  50%추가
+pay = 8000
+
+if hours >7:
+    salary = pay * hours
+    salary = salary + (pay *(hours-7))* 0.5
+else:
+    salary =pay*hours
+    print(" 임금: %.2f원" %salary)
+    
+
+# end(&) or(|) 
+    
+score =int(input(":"))    #  학점출력 코드
+if 90 <= score <= 100:
+    print("A")
+elif 80 <= score <90:
+    print("B")
+elif 70 <= score <= 80:
+    print("C")
+    else print("F")
+    
+month = int(input("4:")) # 달의 일수 구하기 
+
+if month == 2:
+    print("28일")
+elif month == 4 or month ==6 or month ==9 or month == 11:
+    print("30일")
+else: print("31일")
+
+#0 ~ 24시간 중 하나를 입력받아 인사하기 
+nowtime = int(input("지금 시간은 (0-24): "))
+if 
+
+# 미터단위 를 피트단위로 변환 
+print("1. 미터를 피트, 2. 피트를 미터로  ")
+feet = int(input(" :"))
+meter = 
+
+#사칙연산 계산하기 
+print("1.덧셈, 2.뺄셈, 3.곱셈, 4.나늣셈")
+menu = int(input("메뉴선택 : "))
+
+#while 문의 조건식이 참인 동안 코드블록문장을 계속반복, 거짓이면 while  문을 빠져나감.
+
+count = 1# 특정횟수만큼 반복
+while count <= 10:
+    print("hello python")
+    count +=1
+    
+count = 1 #무한루프 ,조건이 무조건 참
+while Ture:  #참임
+    print("hello phthon")
+    if count == 10: #조건빠져나오기
+        break #if 문에걸린 브레이크
+    count +=1
+    
