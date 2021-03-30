@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 """
 Spyder Editor
-
 This is a temporary script file.
 """
-numbe0 = 10, 20, 30 """Packing"""
-number1, number2 = 100, 200"""(Unpacking)"""
-"""// 연산자 : 나눈 몫
-– % 연산자 (modulus) : 나눈 나머지
-– ** 지수승 : a**b → a의 b승"""
+numbe0 = 10, 20, 30 #Packing
+number1, number2 = 100, 200 #(Unpacking)
+# % 연산자 (modulus) : 나눈 나머지
+# // 연산자 : 나눈 몫
+# ** 지수승 : a**b → a의 b승
 a,b= 1,2;
 x,y=3,4;
-divmod(a,b); """나누기 b 의 몫과 나머지르 계산"""
-pow(x, y); """a 의 b승d"""
+divmod(a,b); #나누기 b 의 몫과 나머지르 계산
+pow(x, y); #a 의 b승d
 
 fullsec = int(input("5264: ")) #왼쪽이 함수 오른쪽이 넣는값
 hour = (fullsec // 60) // 60
@@ -35,7 +34,7 @@ print("500원 %d개, 100원 %d개, 50원 %d개, 10원 %d개" %(m500, m100,
 m50, m10))
 
 
-eval(“문자열”)
+# eval(“”) 
 
 expression = input("일반 수식을 그대로 입력 : ") # 일반 수식을 문자열로 입력 받아 그대로 연산하기
 answer = eval(expression)
@@ -45,10 +44,10 @@ theory= 90; practice= 85
 decision = theory >= 90 and practice >=90
 print(decision)
 
-""" 흐름제어, 조건문(if,else), 반복문(for), 4칸 띄우기 (코드블록)tab, space;
-"""
+# 흐름제어, 조건문(if,else), 반복문(for), 4칸 띄우기 (코드블록)tab, space;
 
-"""== 같은지 여부 !=다른지 여부비교 >,>=,< ,<= 두값의 크기를 비교  """
+
+# == 같은지 여부 !=다른지 여부비교 >,>=,< ,<= 두값의 크기를 비교  
 if  num1 > num2: """ 조건이 참일때 수행"""
 
 
@@ -105,17 +104,51 @@ else: print("31일")
 
 #0 ~ 24시간 중 하나를 입력받아 인사하기 
 nowtime = int(input("지금 시간은 (0-24): "))
-if 
+if nowtime > 12: 
+    hour1 = nowtime/2 
+print ("현재시간 %d 시간 입니다." %(hour1))
+
+
+
+
+
 
 # 미터단위 를 피트단위로 변환 
-print("1. 미터를 피트, 2. 피트를 미터로  ")
-feet = int(input(" :"))
-meter = 
+d_ft = int(input("피트입 : "))
+d_meter = d_ft * 3.28
+print("피트는 %d미터 입니다. ." %(d_meter))
+
+d_mt = int(input("미터 입력 : "))
+d_feet = d_mt * 0.3048
+print("미터는 %d 피트 입니다." %(d_feet))
+print("The distance in miles is %.2f miles." % d_miles)
 
 #사칙연산 계산하기 
-print("1.덧셈, 2.뺄셈, 3.곱셈, 4.나늣셈")
-menu = int(input("메뉴선택 : "))
 
+
+print("1.+, 2.-, 3.*, 4./")
+
+menu = int(input("메뉴선택 : "))
+num1 = input("First Number:\n")
+
+operator = input("Operator (+, -, *, /):\n")
+num2 = input("Second Number:\n")
+
+num1 = float(num1)
+num2 = float(num2)
+
+out = None
+
+if operator == "+":
+    out =  num1 + num2
+elif operator == "-":
+    out = num1 - num2
+elif operator == "*":
+    out = num1 * num2
+elif operator == "/":
+    out = num1 / num2
+print("Answer: " + str(out))
+    
 #while 문의 조건식이 참인 동안 코드블록문장을 계속반복, 거짓이면 while  문을 빠져나감.
 
 count = 1# 특정횟수만큼 반복
@@ -129,4 +162,3 @@ while Ture:  #참임
     if count == 10: #조건빠져나오기
         break #if 문에걸린 브레이크
     count +=1
-    
