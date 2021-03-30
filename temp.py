@@ -162,3 +162,72 @@ while Ture:  #참임
     if count == 10: #조건빠져나오기
         break #if 문에걸린 브레이크
     count +=1
+    
+    
+    #1부터 10까지 합구하기 
+total = 0
+count = 1 
+while count <= 10:
+    total += count  #일반항 
+    count += 1 # count = count + 1, 반복 
+print("합 :", total)
+
+
+# 키보드로 입력한 수를 차례로 누적하여 합구하기 
+total =0 
+while True:
+    number = input(int("수를 입력 (0: 종료):")) #값입력 
+     if number == 0: 
+        break
+    total += number 
+print ("수" , total)
+    
+
+#학생 10명의 점수로 합격 불합격자수 구하기
+passes= 0; failure = 0 
+count = 1 
+while count <= 10: 
+    score = int(input("학생 점수를 입력 :"))
+    if  score >= 80: 
+        passes += 1
+    else: 
+        failure += 1
+        
+print(" 합격 : %d,  불합격 : %d" %(passes, failure ))
+
+
+# while 문에서  else 문  사용이 가능함 
+
+count = 1
+while count <= 5:
+    if count == 3:  
+        break
+    print ("python", count)
+    count += 1
+else: 
+    print ("감사합니다.")
+    
+count = 1
+while count <= 5: 
+    print ("python", count)
+    count += 1 
+else: #모든 반복을 다 수행 했을 경우  else 수행 
+    print("감사합니다.")
+
+
+# BMI 측정하기 
+ 
+while True: #계속반복
+    print("비만도 판정")
+    height = float(input("신장(m)은 ?":))
+    weight = float(input("체중(Kg)은 ?":))
+    BMI = weight/pow(height,2)
+    if BMI < 18.5:
+        print("마름")
+    elif 18.5 <= BMI < 25:
+        print("표준")
+else:
+    print("비만")
+대답= input("계속?") #대답
+    if 대답 == "n" :
+        break
