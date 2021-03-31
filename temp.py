@@ -34,6 +34,53 @@ print("500원 %d개, 100원 %d개, 50원 %d개, 10원 %d개" %(m500, m100,
 m50, m10))
 
 
+
+#0 ~ 24시간 중 하나를 입력받아 인사하기 
+nowtime = int(input("지금 시간은 (0-24): "))
+hour1 = nowtime%12
+
+print("지금시간은 %d 시 입니다." %hour1)
+
+
+
+
+
+# 미터단위 를 피트단위로 변환 
+ft = int(input("피트입력 : "))
+meter = ft * 0.3048 
+print("%d 미터 입니다. ." %meter)
+
+# 피트를 미터로 변환 
+
+mt = int(input("미터 입력 : "))
+feet = mt * 3.281
+print(" %d 피트 입니다." %feet)
+
+
+#사칙연산 계산하기 
+
+
+num1 = input("첫번째 operand:") 
+
+num2 = input("두번쨰 operand:")
+operator = input("Operator (+, -, *, /):")
+
+num1 = float(num1)
+num2 = float(num2)
+
+
+if operator == "+":
+    out =  num1 + num2
+elif operator == "-":
+    out = num1 - num2
+elif operator == "*":
+    out = num1 * num2
+elif operator == "/":
+    out = num1 / num2
+print("Answer: " + str(out))
+    
+
+
 # eval(“”) 
 
 expression = input("일반 수식을 그대로 입력 : ") # 일반 수식을 문자열로 입력 받아 그대로 연산하기
