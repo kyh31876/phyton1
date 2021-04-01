@@ -322,4 +322,66 @@ elif operator == "*":
 elif operator == "/":
     out = num1 / num2
 print("Answer: " + str(out))
+   
+ #비밀번호가 5회틀릴경우 메세지 출력
+
+passwd ="python1234"
+tries = 1
+
+while tries <6: 
+    guess = input("비밀번호:")
+    if guess == passwd:
+        print("비밀번호가 일치")
+        break
+    else: 
+        print("비밀번호가 불일치")
+        if tries != 5: 
+            print("오류 %d 회" %tries)
+            print("%d 회 남음" %(5-tries))
+        tries += 1 
+else: 
+    print("처음부터 다시시작")
+
+for 변수 in 대입값 :
     
+for number in [1,2,3,4,5]:
+    print("python")
+
+for score in [100 ,98 ,85, 70]:
+    print("score")
+    
+for letter in "hello":
+    print("letter")
+
+for animal in ["dog", "cat "]
+    print ("animal")
+
+#range (start, end ,step ) end는 값이 포함안됨 
+for count in range(1, 10 , 2):
+    print(count)
+
+for conduct in range( ,14, 1):#start 값 생략한다 => 0부터 출력 
+    print(conduct)
+
+#10에서 100까지 짝수값만 
+total = 0
+for number in range (10,101,2 ):
+    total += number
+print("합 :" ,total)    
+
+#1에서 100까지 3의 배수이면서 7의 배수인값 출력 
+for number in range(1,101):
+    if number % 3 == 0 and number % 7 ==0:
+        print(number,end =" ") #end 옵션은 출력후 뒤를 어떻게 처리할지 
+
+
+#1에서 입력한 수까지 합을 구할떄 합이 10000 넘는지 안넘는지 확인하기 
+number = int(input("수입력 :"))
+total =0 
+for count in range(1,number+1):
+    total += count
+    if total > 10000: #넘는지 확인 
+        print("10000을 넘는수:",count)#차례로 더하기 순간마다 10000넘는지 확인 
+        break  # 넘는다 -> 종료,break
+else: #안넘으면 for 문 처음으로
+    print ("넘지않습니다") 
