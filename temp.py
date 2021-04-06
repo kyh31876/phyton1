@@ -3,8 +3,14 @@
 Spyder Editor
 This is a temporary script file.
 """
-numbe0 = 10, 20, 30 #Packing
-number1, number2 = 100, 200 #(Unpacking)
+
+#두 개의 변수에 정수를 각각 할당
+number1, number2 = 100, 200
+#하나의 변수에 여러 개의 정수를 할당
+data = 10, 20, 30
+#x, y, z 변수에 모두 10이라는 값을 할당
+x, y, z = 10
+
 # % 연산자 (modulus) : 나눈 나머지
 # // 연산자 : 나눈 몫
 # ** 지수승 : a**b → a의 b승
@@ -86,6 +92,14 @@ print("Answer: " + str(out))
 expression = input("일반 수식을 그대로 입력 : ") # 일반 수식을 문자열로 입력 받아 그대로 연산하기
 answer = eval(expression)
 print("결과 : %.2f" %answer)
+
+#exec(“문자열”)
+#문자열로 표현된 파이썬 문장을 인수로 받아 컴파일 코드로 변환하고 인터프리터에 의해 실행
+
+number=10 
+exec("number+=2")
+print(number)
+
 
 theory= 90; practice= 85
 decision = theory >= 90 and practice >=90
