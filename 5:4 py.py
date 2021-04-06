@@ -240,7 +240,16 @@ print(number, end="")
 
 
 #숫자 건너뛰기
- for count in range (1,6):
+for count in range (1,6):
      if count == 3:
          continue
      print("count=", count)
+
+# '\'연산은 현재라인과 다음라인을연결 , '*'연산은 문자 반복을 의미 
+# in keyword 데이터 내부에 element 의 존재를 확인 
+massage= "hello world"
+print("h" in massage)
+
+# str(object) number object 를 str로 변환 
+#문자형 formatting  
+# %d 정수형 , $f 실수형, %s  문자형, %.nf  소수 n자리까지 실수출력 
