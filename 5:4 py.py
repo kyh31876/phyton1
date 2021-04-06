@@ -173,3 +173,74 @@ print("평균 : %.2f" %average)
 #for 문에 else 문 사용할 수 경우
 #모든 반복을 다 수행했을 경우 else 문을 수행
 #반복 수행 중 중간에 중지되는 경우 else 문을 수행하지 않음
+
+# 중첩된 반복문을 이용한 구구단 작성
+dan = 2
+while dan <= 9:
+    su = 1
+    while su <= 9:
+        print("%d X %d = %d" %(dan, su, dan*su)) # %d 는 정수형 들고옴 
+        su += 1
+    dan += 1
+
+for dan in range(2, 10): #마지막 숫자 포함안됨, 숫자가 포함된경우
+    for su in range(1, 10):
+        print("%d X %d = %d" %(dan, su, dan*su))
+
+# 주사위 두 개를 던졌을 때 합이 6이 되는 경우 출력하기
+for dice1 in range(1, 7):
+    for dice2 in range(1, 7):
+        if (dice1 + dice2) == 6:
+            print("주사위1 : %d, 주사위2 : %d" %(dice1, dice2))
+for dice1 in range(1,7):
+    for dice2 in range(1,7): 
+        if (dice1 + dice2) == 6:
+            print("dice1 : %d, dice2 :%d" %(dice1,dice2))
+
+# 라인과 별의 수를 입력하여 별 블록 생성하기
+line = int(input("라인 개수 : "))
+star = int(input("별의 개수 : "))
+for lcount in range(line):
+    for scount in range(star):
+        print("*", end="")
+    print()
+
+for line in range(1, 6):
+    for star in range(line):
+        print("*", end="")
+    print()
+
+for line in range(1, 5):
+    for star in range(line, 5):
+        print("*", end="")
+    print()
+
+
+     
+#continue   
+for letter in "python":
+    if letter == "t":
+        continue
+    print(letter, end="")
+else:
+    print("출력완료")
+    
+for letter in "python":
+    if letter == "t":
+        print(letter, end="")
+else:
+    print("출력완료")
+    
+    
+#1에서 20까지의 수중에서 2의 배수와 3의 배수를 제외한 수 구하기
+for number in range(1, 21):
+    if number % 2 == 0 or number % 3 == 0:
+        continue
+print(number, end="")
+
+
+#숫자 건너뛰기
+ for count in range (1,6):
+     if count == 3:
+         continue
+     print("count=", count)
