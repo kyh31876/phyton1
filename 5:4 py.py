@@ -253,3 +253,30 @@ print("h" in massage)
 # str(object) number object 를 str로 변환 
 #문자형 formatting  
 # %d 정수형 , $f 실수형, %s  문자형, %.nf  소수 n자리까지 실수출력 
+
+#입력된 문자열 거꾸로 
+
+
+#입력한 주민번호 에서 생년월일 추출하여 출력 
+import sys 
+idnumber= input("주민번호를 '-'없이 입:")
+
+if idnumber== '1' or idnumber[6]=='2':
+    year = '19' + idnumber[:2]
+else:
+    year= '20' +idnumber[2:4]
+
+
+month=idnumber[2:4]
+day=idnumber[4:6]
+
+    
+print("%d년 %d월 %d일 ")
+
+#문자열.count(찾을 문자열 위치, 찾을 위치)
+#문자열.replace(찾을 문자열,바꿀문자열 )  
+
+#문자열.split() *important 
+#문자열.splitless()  
+
+#구분문자.join 인수에서 지정한 문자열이나 리스트의 각항목들에 구분문자를 중간에 삽입 하여 하나의 문자열을 만들어 변환 
