@@ -1,11 +1,7 @@
-nation =[]
-while TRUE:
-    name=input("국가를 입력 (종료:exit):")
-    if name == "exit":
+total = 0
+while True:
+    number = int(input("수를 입력(0: 종료):")) #값입력 
+    if number == 0: 
         break
-    if name in nation:
-        print("중복된 국가가 존재합니다")
-        print("다시입력 하세요 ")
-        continue
-    nation.append(name)
-print("국가 :", nation)
+    total += number 
+print ("합:"  total)
