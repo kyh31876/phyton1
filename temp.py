@@ -19,15 +19,15 @@ x,y=3,4;
 divmod(a,b); #나누기 b 의 몫과 나머지르 계산
 pow(x, y); #a 의 b승d
 
-fullsec = int(input("5264: ")) #왼쪽이 함수 오른쪽이 넣는값
+fullsec = int(input("초를입력해주세요: ")) #왼쪽이 함수 오른쪽이 넣는값
 hour = (fullsec // 60) // 60
 minute = (fullsec // 60) % 60
 seconds = fullsec % 60
-print("%d초는" %fullsec, end=" ")
+print("%d초는" %fullsec, end=",")
 print("%d시간 %d분 %d초 입니다" %(hour, minute, seconds))
 
 
-money = int(input("84756 : "))
+money = int(input("돈을입력 : "))
 m500 = money // 500
 money %= 500
 m100 = money // 100
@@ -40,10 +40,9 @@ print("500원 %d개, 100원 %d개, 50원 %d개, 10원 %d개" %(m500, m100,
 m50, m10))
 
 
-
 #0 ~ 24시간 중 하나를 입력받아 인사하기 
 nowtime = int(input("지금 시간은 (0-24): "))
-hour1 = nowtime%12
+hour1 = nowtime%2
 
 print("지금시간은 %d 시 입니다." %hour1)
 
@@ -109,29 +108,37 @@ print(decision)
 
 
 # == 같은지 여부 !=다른지 여부비교 >,>=,< ,<= 두값의 크기를 비교  
-if  num1 > num2: """ 조건이 참일때 수행"""
-age= int(input("15:")) #조건만족 할때 
 
-if age >=14 :
-    print("child")
-print ("they are chindren")
+age= int(input("나이를 입력하세요:")) 
+if age <= 14 :
+    print("child") #조건만족 할때 
+else:
+    print ("they are adult")
+    
 
 
-
-number=int(input("27:")) # even odd 판별
-if number%2  == 0: 
+number=int(input("input number:")) # even odd 판별
+if number % 2  == 0: 
     print("even number")
-print ("odd number")
+else:
+    print ("odd number")
 
-price = float(input("20:"))#float 실수로 변환 가결 할인 행사에 다른 상품구입 가격 구하기
+#가격 할인 행사에 다른 상품 구입 가격 구하기
+#상품 구입 가격이 10 만원 이상이면 20%, 그렇지 않으면 10% 를 할인함
+
+price = float(input("상품가격을 입력 :"))#float 실수로 변환 가격 할인 행사에 다른 상품구입 가격 구하기
 if price >= 10:
-     discount = price * 0.2
+    discount = price * 0.2
 else: 
     discount = price *0.1
 final_price = price - discount 
 print("최종가격 : %.2f만원" %final_price ) #뒤에있는 값을 앞으로 가져와 출력  f는 실수값 가져올때  d는 정수값 s 는 문자 
 
-hours =float(input("9:")) #근무시간 7시간이넘을 경우 ,넘은시간에 대해 시간당 임금을  50%추가
+
+#근무시간에 따른 시간당 임금 구하기
+# 근무시간이 7 시간을 넘을 경우 넘은 시간에 대해서는 시간당 임금의50% 를 추가로 지급함
+
+hours =float(input("근무시간을 입력하시오:")) 
 pay = 8000
 
 if hours >7:
@@ -139,27 +146,40 @@ if hours >7:
     salary = salary + (pay *(hours-7))* 0.5
 else:
     salary =pay*hours
-    print(" 임금: %.2f원" %salary)
+print(" 임금: %.2f원" %salary)
     
 
 # end(&) or(|) 
     
-score =int(input(":"))    #  학점출력 코드
+score =int(input("학점을 입력하시오:"))    #  학점출력 코드
 if 90 <= score <= 100:
     print("A")
 elif 80 <= score <90:
     print("B")
 elif 70 <= score <= 80:
     print("C")
-    else print("F")
-    
-month = int(input("4:")) # 달의 일수 구하기 
+else:
+    print("F")
+if 90< score <= 100:
+    print("수")
+elif 80 < score <=90:
+    print("우")
+elif 70 < score <=80:
+    print("미")
+elif 60 < score <=70:
+    print("양")
+else:
+    print("가")
+
+
+month = int(input("달을 입력 :")) # 달의 일수 구하기 
 
 if month == 2:
     print("28일")
 elif month == 4 or month ==6 or month ==9 or month == 11:
     print("30일")
-else: print("31일")
+else:
+    print("31일")
 
 #0 ~ 24시간 중 하나를 입력받아 인사하기 
 nowtime = int(input("지금 시간은 (0-24): "))
@@ -183,47 +203,40 @@ print("미터는 %d 피트 입니다." %(d_feet))
 print("The distance in miles is %.2f miles." % d_miles)
 
 #사칙연산 계산하기 
-
-
-print("1.+, 2.-, 3.*, 4./")
-
+print("1.add, 2.subtract,3.multy,4.division")
 menu = int(input("메뉴선택 : "))
-num1 = input("First Number:\n")
 
-operator = input("Operator (+, -, *, /):\n")
-num2 = input("Second Number:\n")
+if 1 <= menu <=4:
+    number1=int(input("첫번째 수를 입력:"))
+    number2=int(input("두번째 수를 입력:"))
+if menu ==1: 
+    print("result:", number1+number2)
+elif menu==2:
+    print("result:", number1-number2)
+elif menu==3:
+    print("result:",number1*number2)
+elif menu==4:
+    print("result:",number1/number2)
+else:
+    print("ERROR")
 
-num1 = float(num1)
-num2 = float(num2)
-
-out = None
-
-if operator == "+":
-    out =  num1 + num2
-elif operator == "-":
-    out = num1 - num2
-elif operator == "*":
-    out = num1 * num2
-elif operator == "/":
-    out = num1 / num2
-print("Answer: " + str(out))
     
 #while 문의 조건식이 참인 동안 코드블록문장을 계속반복, 거짓이면 while  문을 빠져나감.
-
 count = 1# 특정횟수만큼 반복
 while count <= 10:
     print("hello python")
     count +=1
     
 count = 1 #무한루프 ,조건이 무조건 참
-while Ture:  #참임
+while True:  #참임
     print("hello phthon")
     if count == 10: #조건빠져나오기
         break #if 문에걸린 브레이크
     count +=1
-    
-    
-    #1부터 10까지 합구하기 
+
+
+
+#1부터 10까지 합구하기 
 total = 0
 count = 1 
 while count <= 10:
@@ -233,13 +246,13 @@ print("합 :", total)
 
 
 # 키보드로 입력한 수를 차례로 누적하여 합구하기 
-total =0 
+total = 0
 while True:
-    number = input(int("수를 입력 (0: 종료):")) #값입력 
-     if number == 0: 
+    number = int(input("수를 입력(0: 종료):")) #값입력 
+    if number == 0: 
         break
     total += number 
-print ("수" , total)
+print ("합:"  ,total)
     
 
 #학생 10명의 점수로 합격 불합격자수 구하기
