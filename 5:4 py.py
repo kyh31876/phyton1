@@ -18,7 +18,7 @@ print("미성년자입니다")
 # if else # 참이면 if 다음에 있는 문장을 수행하고 거짓이면 else 다음 문장을 수행
 
 #수를 입력 받아 홀수 짝수 판별하기
-
+number = int(input("숫자를 입력하세요:"))
 if number % 2 == 0:
     print("짝수")
 else:
@@ -38,7 +38,6 @@ print(" 최종 가격 : %.2f 만원 " %final_price)
 
 
 ## 근무시간에 따른 시간당 임금 구하기
-
 ## 단 근무시간이 7 시간을 넘을 경우 넘은 시간에 대해서는 시간당 임금의 50% 를 추가로 지급함
             
 hours = float(input("근무 시간 입력 :"))
@@ -54,7 +53,7 @@ print("임금 : %.2f 원 " %salary)
 #여자 축구단을 모집하는 프로그램
 #단 나이는 10~12 살 사이의 여성이어야 함 , 성별은 m 과 f 로 받아들임
 gender = input(("성별을 입력 남 :m, 여 :f) :"))
-if gender.lower () == 'f':
+if gender == 'f':
     age = int(input("나이 입력 :"))
     if 10 <= age <= 12:
         print("입단이 가능합니다")
@@ -121,9 +120,7 @@ print("중간값 :", minNumber)
 
 
 #while 문에서 else 문 사용이 가능함
-
 #모든 반복을 다 수행하였을 경우 else 문을 수행
-
 # 반복을 다 수행하지 못하고 빠져나올 경우 else 문은 수행하지 않음
 count = 1
 while count <= 5:
@@ -164,7 +161,7 @@ for animal in ["dog", "cat", "pig", "lion"]:
 total = 0
 for score in [100, 98, 85, 97, 74]:
     total += score
-    average = total / 5;
+    average = total / 5
     
 print("합 : %d" %total)
 print("평균 : %.2f" %average)
@@ -255,23 +252,37 @@ print("h" in massage)
 # %d 정수형 , $f 실수형, %s  문자형, %.nf  소수 n자리까지 실수출력 
 
 #입력된 문자열 거꾸로 
-
+s = input("Enter a string: ")
+print(s[::-1])
 
 #입력한 주민번호 에서 생년월일 추출하여 출력 
 import sys 
-idnumber= input("주민번호를 '-'없이 입:")
-
-if idnumber== '1' or idnumber[6]=='2':
+idnumber= input("주민번호를 '-'없이 입력:")
+if '1' == idnumber[6] or idnumber[6]=='2':
     year = '19' + idnumber[:2]
 else:
     year= '20' +idnumber[2:4]
 
-
 month=idnumber[2:4]
 day=idnumber[4:6]
+print("%d년 %d월 %d일 " %(year,month,day))
 
-    
-print("%d년 %d월 %d일 ")
+def stdInfo(rrn):
+    while len(rrn) !=7:
+        print('7자리가 아닙니다. 다시 입력해주세요.')
+        rrn = input('주민등록번호 7자리를 입력하세요 : ')
+        if len(rrn) == 7:
+            break
+
+    #앞 2자리 이용하여 나이 계산
+    if int(rrn[:2]) < 21 and int(rrn[6]) in (3, 4) :
+        biryear = 2000 + int(rrn[:2])
+    else:
+        biryear = 1900 + int(rrn[:2])
+    #월
+    birmonth = int(rrn[2:4])
+    #일
+    birday = int(rrn[4:6])
 
 #문자열.count(찾을 문자열 위치, 찾을 위치)
 #문자열.replace(찾을 문자열,바꿀문자열 )  
