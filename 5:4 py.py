@@ -335,3 +335,55 @@ for count in range(5):
 average = total/ len(student)
 print("학생들 점수:", student)
 print("평균 : %.1f" %average)
+
+
+#삭제 pop삭제할자료를 보여준후 삭제 
+# remove 값삭제 del 변수삭제
+
+#변수명.pop() 마지막자료를 보여준뒤 삭제 
+#변수명.remove(삭제자료) 
+
+a=[1,2,3]
+a.remove(2)
+
+#정렬 sort() sorted() reverse 
+a= [1,3,2]
+sorted(a)
+
+print(a.sort(a)) #정렬해서 저장까지 할떄 
+
+
+#5명의 이름 차례로 입력 하고 list 보여주기 삭제할 이름을 입력한후 삭제 
+
+names =[] 
+name_str = input("다섯명 이름 입력 :") 
+name_str.split(',')
+rmv=input("삭제할 이름입력 :")
+if rmv in names:
+        names.remove(rmv)
+        print(names)  
+    while TURE: 
+        rmv=input("삭제:") #리스트에 없는 이름
+        if rmv == 'exit':
+            break
+        elif rmv in names:  
+            name.remove(rmv)
+            print(rmv)#삭제할 이름 입력요구 
+            break
+        else:
+            print("다시입력:") #다시입력 
+
+#국가를 입력받아 리스트로 구성하기 (시험문제,알파벳순서변환 )
+nation =[]
+
+while TRUE:
+    name=input("국가를 입력 (종료:exit):")
+    if name == "exit":
+        break
+    if name in nation:
+        print("중복된 국가가 존재합니다")
+        print("다시입력 하세요 ")
+        continue
+    nation.append(name)
+print("국가 :", nation)
+        
