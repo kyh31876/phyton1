@@ -375,8 +375,8 @@ name_str = input("다섯명 이름 입력 :")
 name_str.split(',')
 rmv=input("삭제할 이름입력 :")
 if rmv in names:
-        names.remove(rmv)
-        print(names)  
+    names.remove(rmv)
+    print(names)  
     while TURE: 
         rmv=input("삭제:") #리스트에 없는 이름
         if rmv == 'exit':
