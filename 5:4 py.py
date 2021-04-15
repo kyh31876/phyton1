@@ -252,8 +252,15 @@ print("h" in massage)
 # %d 정수형 , $f 실수형, %s  문자형, %.nf  소수 n자리까지 실수출력 
 
 #입력된 문자열 거꾸로 
+<<<<<<< HEAD
 s = input("Enter a string: ")
 print(s[::-1])
+=======
+a= input("문자를 입력하시오:")
+print(a[::-1])
+
+
+>>>>>>> 2f71aaf2ba9bdd442b08d7eca0952470fbd8507b
 
 #입력한 주민번호 에서 생년월일 추출하여 출력 
 import sys 
@@ -291,3 +298,107 @@ def stdInfo(rrn):
 #문자열.splitless()  
 
 #구분문자.join 인수에서 지정한 문자열이나 리스트의 각항목들에 구분문자를 중간에 삽입 하여 하나의 문자열을 만들어 변환 
+
+a= [1,2,[3,4]]
+a[[2][0]]
+
+
+#range 
+list(range(0,3))
+
+#서로다른 리스트 요소를 반복문으로 출력
+person = ["홍길동" , 25 , "박지성" , 35 , "박찬호" ,32]
+for count in range(len(person)):
+    if count % 2 ==0:
+        print("이름 : %s" %person[count], end=",")
+    else: 
+        print("나이: %d" %int(person[count]))
+        
+#0부터 15까지 피보나치 수열 만들기 
+fibo = list(range(10))
+fibo[0]=1
+fibo[1]=1
+for count in range(2,10):
+    fibo[count] = fibo[count-2] + fibo[count-1]
+    
+    
+print("피보나치 :", fibo)
+
+#리스트의 분리 
+number1, *number2 = [10,20,30,40,50]
+
+
+#max(): 리스트 내의 가장 큰요소를찾아 변환  min(): 리스트내의 가장작은요소를 변환 
+
+#index method  변수명.함수명(옵션) ; 변수명.index(찾을위치)
+#count method 변수명.count()
+
+# list.append(data): 리스트마지막요소로 새로운요소 추가 
+# list.insert(index, data) : 리스트에 삽입할 위치를 지정해 새로운 요소를 추가
+
+# list.extend( 확장할 리스트 )마지막에 다른 리스트의 요소를 추가하여 확장. 
+
+#학생 5명의 점수를 입력받아 리스트에 저장하고 평균구하기 시험문제(문자를 숫자로)
+
+student =[]
+total =0 
+for count in range(5):
+    score =int(input("점수를 입력 :"))
+    student.append(score)
+    total += score
+    
+average = total/ len(student)
+print("학생들 점수:", student)
+print("평균 : %.1f" %average)
+
+
+#삭제 pop삭제할자료를 보여준후 삭제 
+# remove 값삭제 del 변수삭제
+
+#변수명.pop() 마지막자료를 보여준뒤 삭제 
+#변수명.remove(삭제자료) 
+
+a=[1,2,3]
+a.remove(2)
+
+#정렬 sort() sorted() reverse 
+a= [1,3,2]
+sorted(a)
+
+print(a.sort(a)) #정렬해서 저장까지 할떄 
+
+
+#5명의 이름 차례로 입력 하고 list 보여주기 삭제할 이름을 입력한후 삭제 
+
+names =[] 
+name_str = input("다섯명 이름 입력 :") 
+name_str.split(',')
+rmv=input("삭제할 이름입력 :")
+if rmv in names:
+        names.remove(rmv)
+        print(names)  
+    while TURE: 
+        rmv=input("삭제:") #리스트에 없는 이름
+        if rmv == 'exit':
+            break
+        elif rmv in names:  
+            name.remove(rmv)
+            print(rmv)#삭제할 이름 입력요구 
+            break
+        else:
+            print("다시입력:") #다시입력 
+
+#국가를 입력받아 리스트로 구성하기 (시험문제,알파벳순서변환 )
+nation =[]
+
+while TRUE:
+    name=input("국가를 입력 (종료:exit):")
+    if name == "exit":
+        break
+    if name in nation:
+        print("중복된 국가가 존재합니다")
+        print("다시입력 하세요 ")
+        continue
+    nation.append(name)
+print("국가 :", nation)
+        
