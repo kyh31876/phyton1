@@ -369,17 +369,16 @@ else:
 
 for 변수 in 대입값 :
     
-for number in [1,2,3,4,5]:
-    print("python")
+
 
 for score in [100 ,98 ,85, 70]:
-    print("score")
+    print(score)
     
 for letter in "hello":
     print("letter")
 
-for animal in ["dog", "cat "]
-    print ("animal")
+for animal in ["dog","cat"]
+    print (animal)
 
 #range (start, end ,step ) end는 값이 포함안됨 
 for count in range(1, 10 , 2):
