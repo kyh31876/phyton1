@@ -272,14 +272,19 @@ print(s[::-1])
 #입력한 주민번호 에서 생년월일 추출하여 출력 
 import sys 
 idnumber= input("주민번호를 '-'없이 입력:")
+)
 if '1' == idnumber[6] or idnumber[6]=='2':
     year = '19' + idnumber[:2]
+elif '3' == idnumber[6] or '4' == idnumber[6]:
+    year = '20' + idnumber[:2]
 else:
-    year= '20' +idnumber[2:4]
-
+    print("잘못입력")
+    sys.exit()
 month=idnumber[2:4]
 day=idnumber[4:6]
-print("%d년 %d월 %d일 " %(year,month,day))
+print("%s년 %s월 %s일 " %(year,month,day))
+
+
 
 def stdInfo(rrn):
     while len(rrn) !=7:
