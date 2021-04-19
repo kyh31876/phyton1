@@ -257,6 +257,11 @@ for count in range (1,6):
      print("count=", count)
 
 # '\'연산은 현재라인과 다음라인을연결 , '*'연산은 문자 반복을 의미 
+
+print("Hello" + \
+    "World")
+
+
 # in keyword 데이터 내부에 element 의 존재를 확인 
 massage= "hello world"
 print("h" in massage)
@@ -265,6 +270,8 @@ print("h" in massage)
 #문자형 formatting  
 # %d 정수형 , $f 실수형, %s  문자형, %.nf  소수 n자리까지 실수출력 
 
+
+
 #입력된 문자열 거꾸로 
 s = input("Enter a string: ")
 print(s[::-1])
@@ -272,7 +279,7 @@ print(s[::-1])
 #입력한 주민번호 에서 생년월일 추출하여 출력 
 import sys 
 idnumber= input("주민번호를 '-'없이 입력:")
-)
+
 if '1' == idnumber[6] or idnumber[6]=='2':
     year = '19' + idnumber[:2]
 elif '3' == idnumber[6] or '4' == idnumber[6]:
@@ -284,6 +291,9 @@ month=idnumber[2:4]
 day=idnumber[4:6]
 print("%s년 %s월 %s일 " %(year,month,day))
 
+
+
+#len() : 문자열의 길이를 구함 
 
 
 def stdInfo(rrn):
@@ -303,11 +313,22 @@ def stdInfo(rrn):
     #일
     birday = int(rrn[4:6])
 
-#문자열.count(찾을 문자열 위치, 찾을 위치)
-#문자열.replace(찾을 문자열,바꿀문자열 )  
 
-#문자열.split() *important 
-#문자열.splitless()  
+
+#문자열.count(찾을 문자열 위치, 찾을 위치): 지정한 문자열이 몇번 나오는지 개수셈 
+
+#문자열.replace(찾을 문자열,바꿀문자열): 첫번쨰 인수에서 지정한 문자를  지정한 문자열로 바꿈
+
+#문자열.index(찾을문자열, 찾을위치): 지정한 문자열의 처음을 나타내는 index 반환 
+
+
+
+#문자열.split() *important, 문자열에서 부분문자열을 특정 구분문자로 분리
+massage= "Hello Python Korea"
+message.split("")
+
+
+#문자열.splitless() : 문자열에서 줄바꿈이 표함된 문자를 행단위로 분리 
 
 #구분문자.join 인수에서 지정한 문자열이나 리스트의 각항목들에 구분문자를 중간에 삽입 하여 하나의 문자열을 만들어 변환 
 
@@ -318,6 +339,19 @@ a[[2][0]]
 #range 
 list(range(0,3))
 
+#점수를 차례로 입력해 총합 구하기 
+score =input("점수를 (-)입력:")
+total= 0 
+for item in score.split("-"):
+    total += int(item)
+
+print("총점 : %d" %total)
+
+
+#리스트의 전체 요소를 가져오기 위한 방법:
+#for 문이나 while 문을 사용하여 리스트 요소를 차례로 가져옴
+
+
 #서로다른 리스트 요소를 반복문으로 출력
 person = ["홍길동" , 25 , "박지성" , 35 , "박찬호" ,32]
 for count in range(len(person)):
@@ -325,7 +359,11 @@ for count in range(len(person)):
         print("이름 : %s" %person[count], end=",")
     else: 
         print("나이: %d" %int(person[count]))
-        
+
+
+
+
+
 #0부터 15까지 피보나치 수열 만들기 
 fibo = list(range(10))
 fibo[0]=1
@@ -340,15 +378,38 @@ print("피보나치 :", fibo)
 number1, *number2 = [10,20,30,40,50]
 
 
-#max(): 리스트 내의 가장 큰요소를찾아 변환  min(): 리스트내의 가장작은요소를 변환 
+#max(): 리스트 내의 가장 큰요소를찾아 변환  
+#min(): 리스트내의 가장작은요소를 변환 
 
-#index method  변수명.함수명(옵션) ; 변수명.index(찾을위치)
-#count method 변수명.count()
+#index method:  변수명.함수명(옵션) ;
+#  변수명.index(찾을요소, 찾을위치)
 
+#count method: 변수명.count(찾을요소) 
+ 
 # list.append(data): 리스트마지막요소로 새로운요소 추가 
-# list.insert(index, data) : 리스트에 삽입할 위치를 지정해 새로운 요소를 추가
+nation=[] #새로운 리스트를 생성할경우 먼저 공백리스트를 먼저
+nation.append("taiwan")
+nation.append("china")
+nation.append([10,20])
+print(nation)
 
-# list.extend( 확장할 리스트 )마지막에 다른 리스트의 요소를 추가하여 확장. 
+
+# list.insert(index, data) : 리스트에 삽입할 위치를 지정해 새로운 요소를 추가
+nation=["taiwan","china"]
+nation.insert(1,"korea")
+print(nation)
+
+
+
+
+# list.extend(확장할 리스트): 마지막에 다른 리스트의 요소를 추가하여 확장. 
+
+nation=["taiwan","china"]
+nation.extend(["japan","korea"])
+
+nation.insert(1,"USA")
+
+
 
 #학생 5명의 점수를 입력받아 리스트에 저장하고 평균구하기 시험문제(문자를 숫자로)
 
@@ -363,9 +424,10 @@ average = total/ len(student)
 print("학생들 점수:", student)
 print("평균 : %.1f" %average)
 
-
-#삭제 pop삭제할자료를 보여준후 삭제 
-# remove 값삭제 del 변수삭제
+# 값삭제 del list[index] or del list[n:n]변수삭제
+number=[10,20,30,40,50]
+del number[1]
+print(number)
 
 #변수명.pop() 마지막자료를 보여준뒤 삭제 
 #변수명.remove(삭제자료) 
@@ -377,8 +439,14 @@ a.remove(2)
 a= [1,3,2]
 sorted(a)
 
-print(a.sort(a)) #정렬해서 저장까지 할떄 
+print(a.sort()) #정렬해서 저장까지 할떄 
 
+
+
+#list.pop(): 인수를 지정하지 않을경우 리스트의 마지막 요소를 찾아서 삭제, 삭제후의 리스트는 변경됨 
+
+
+#list.pop(index):리스트 내의 특정요소삭제
 
 #5명의 이름 차례로 입력 하고 list 보여주기 삭제할 이름을 입력한후 삭제 
 
@@ -400,8 +468,28 @@ while TRUE:
     else:
         print("다시입력:") #다시입력 
 
+
+names =[] 
+name_str = input("다섯명 이름 입력 :") 
+name_str.split()
+
+
+rmv=input("삭제할 이름입력 :")
+if rmv in names:
+    names.remove(rmv)
+    print("%s가작세되었습니다." %rmv)
+else: 
+    print("%s가 존재하지 않습니다." %rmv)
+
+
+
+
+
 #국가를 입력받아 리스트로 구성하기 (시험문제,알파벳순서변환 )
+
+
 nation =[]
+
 while TRUE:
     name=input("국가를 입력 (종료:exit):")
     if name == "exit":
