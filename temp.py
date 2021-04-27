@@ -222,6 +222,7 @@ else:
 
     
 #while 문의 조건식이 참인 동안 코드블록문장을 계속반복, 거짓이면 while  문을 빠져나감.
+
 count = 1# 특정횟수만큼 반복
 while count <= 10:
     print("hello python")
