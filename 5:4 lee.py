@@ -6,16 +6,21 @@ Created on Mon Apr  5 20:28:39 2021
 @author: tetsuyaariake
 """
 
+#단순 if 문
+#if 다음의 조건식이 참이면 문장을 수행하고 거짓이면 수행하지 않음
+
+
 #성인 판별 
 
 age = int(input("나이 입력 :"))
 if age >= 19:
     print("성인")
+else:
+    print("미성년자입니다")
 
-print("미성년자입니다")
 
-
-# if else # 참이면 if 다음에 있는 문장을 수행하고 거짓이면 else 다음 문장을 수행
+# if else 
+# # 참이면 if 다음에 있는 문장을 수행하고 거짓이면 else 다음 문장을 수행
 
 #수를 입력 받아 홀수 짝수 판별하기
 number = int(input("숫자를 입력하세요:"))
@@ -33,6 +38,7 @@ if price >= 10:
     discount = price * 0.2
 else:
     discount = price * 0.1
+
 final_price = price - discount
 print(" 최종 가격 : %.2f 만원 " %final_price)
 
@@ -42,12 +48,22 @@ print(" 최종 가격 : %.2f 만원 " %final_price)
             
 hours = float(input("근무 시간 입력 :"))
 pay = 8000
+
 if hours > 7:
     salary = pay * hours
     salary = salary + (pay * (hours)) * 0.5
 else:
     salary = pay * hours
+
 print("임금 : %.2f 원 " %salary)
+
+
+
+
+#elif: 2개이상의 조건을처리, 
+#else : 어떠한 조건에도 해당하지 않는 경우, 가장마지막에 사용
+
+
 
 
 #여자 축구단을 모집하는 프로그램
@@ -93,7 +109,47 @@ elif month == 4 or month == 6 or month == 10:
     print("30일")
 else: 
     print("31일")
+
+
+
+#While : 조건식이 참인 동안 아래의 코드 블록 을 계속 반복, 
+# 거짓일 경우 While 문을 빠져나감 
+
+
+# 계수 반복: 특정 횟수만큼 반복, 횟수를 기록하는 변수와 횟수를 증가시킴
+count=1
+while count <= 10:
+    print("hello world")
+    count+=1
+
+#무한 반복: 반복의 조건이 무조건 참이므로 계속 반복 
+count=1 
+while True:
+    print("hello world")
+    if count==10:
+        break # 조건이 참일경우 break 를 통해 빠져나옴 
+    count+=1
+
+#1부터 10까지 합 
+total=0
+count=1
+while count <=10:
+    total += count
+    count +=1
+    print("합:", total)
     
+
+
+#키보드로 입력한 수를 차례로 누적해 합 구하기 
+total =0
+while True:
+    number = int(input("수를입력 (0:종료):"))
+    if number==0:
+        break
+    total += number
+print("합:",total)
+
+
 #학생 10 명의 점수로 합격 불합격자수 구하기
 passes = 0; failure = 0
 count = 1
@@ -117,6 +173,11 @@ while True:
     maxNumber -= 1
 
 print("중간값 :", minNumber)
+
+
+
+
+
 
 
 #while 문에서 else 문 사용이 가능함
@@ -501,3 +562,84 @@ while TRUE:
     nation.append(name)
 print("국가 :", nation)
         
+
+
+#dictionary Type 
+# word - 뜻 key- value {key : value}... value 에 list 형태를 묶어서 사용할수있다. 
+
+#indexing []
+a=[1,2,3]
+# a[key] 
+
+#data type {'var1':[1,2,3,4...],'var2':[1,2,3,4...]} :Dataframe
+
+##모듈 불러오기
+#import 모듈명(pandas)
+#import 모듈명 or pd
+#from 모듈명 import 모듈명(함수명)
+
+#dataframe 으로 변경 
+#pandas.dataframe(Dict data(2차원 배열자료), columns=[열이름],index=[index name])
+
+
+#data frame 변환 
+
+import pandas as pd 
+dict_data={'c0':[1,2,3],'c1':[4,5,6],'c2':[7,8,9],'c3':[10,11,12],'c4':[13,14,15]}
+
+df=pd.DataFrame(dict_data)
+
+print(type(df))
+print('\n')
+print(df)
+
+import pandas as pd 
+df=pd.DataFrame([[15,'남','덕영중'],[17,'여','수리중']],index=['준서','예은'],columns=['나이','성별','학교'])
+print(df)
+
+
+#column index/row 이름 변경 
+
+#행 index 변경: DataFrameobject.index= 새로운 행 인덱스 배열 
+#열 이름 변경: DataFreamobject.columns=새로운 이름배열 
+
+
+# rename()이용 
+#행 인덱스 변경 : DataFrameobject.rename(index={기존 인덱스:새인덱스})
+#열 이름 변경 : DataFrameobject.rename(columns={기존이름:새이름})
+
+import pandas as pd
+df=pd.DataFrame([[15,'남','덕영중'],[17,'여','수리중']],index=['준서','예은'],columns=['나이','성별','학교'])
+
+df.rename(index={'준서':'학생1','예은':'학생2'},inplace=True) #바꾼값을 저장
+df.rename(columns={'나이':'연령','성별':'남녀','학교':'소속'},inplace=True)
+print(df)
+
+
+#row/column 삭제 
+#행삭제: DataFrameobject.drop(행 index or 배열,axis=0)
+#열삭제: DataFrameobject.drop(열 이름 or 배열,axis=1)
+
+
+import pandas as pd 
+exam_data={'수학':[90,80,70],'영어':[98,89,95],'음악':[85,95,100],'체육':[100,90,90]}
+df=pd.DataFrame(exam_data,index=['서준','우현','인아'])
+print(df)
+print('\n') # 한줄 띄우기
+
+df2=df[:] #복사해서 다른곳에 붙여넣기 
+df2.drop('우현',inplace=True)
+print(df2)
+
+df3=df[:]
+df3.drop(['우현','인아'],axis=0,inplace=True)
+print(df3)
+
+
+df4=df[:]
+df4.drop('수학',axis=1,inplace=True)
+print(df4)
+
+df5=df[:]
+df5.drop(['영어','음악'],axis=1,inplace=True)
+print(df5)
