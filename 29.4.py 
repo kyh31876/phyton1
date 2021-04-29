@@ -1,0 +1,18 @@
+# for variables in 변수할당가능한 자료:
+#   문장1
+#   문장2
+
+for i in "테스트123":
+    print(i) #문자 하나씩 받아와서 차례대로 반복출력 
+
+l =['test',1,2,3] #4개의 요소를 가지고 있음 
+for i in l:
+    print(i)
+
+tp1=(1,2,3)
+for i in tp1:
+    print(i)
+
+tp2=[(1,2),(2,3),(4,5)]
+for i in tp2:
+    print(i)
