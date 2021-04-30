@@ -81,4 +81,30 @@ for i in range(2,10):
 num =1 #먼저 변수를 정하기  print:1
 while num < 5: #5보다 작을 동안 실행  
     print(num) 
-    num =+1 #변수를 업데이트 
+    num =num+1 #변수를 업데이트 
+
+#break문 
+num =1
+while num < 5: 
+    print(num) 
+    break #나오자마자 나간다.
+    num =num+1 
+
+
+#continue 
+num =1 
+while num < 5: 
+    print(num) 
+    num =num+1 
+    continue #continue 뒤에껀 실행을 안시킨다. 
+    num = num+10000
+
+
+#출석확인 
+num=0 
+while num<10:
+    num = num+1
+    print("%d번 학생 출석 확인" %num)
+
+for num in range(11):
+    print("%d번 학생 출석 확인 " %num)
