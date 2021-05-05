@@ -108,3 +108,70 @@ while num<10:
 
 for num in range(11):
     print("%d번 학생 출석 확인 " %num)
+
+
+#if 문 
+    #if 조건문1:
+        #조건문 1이 참인경우 문장1 
+        #조건문 1이 참인경우 문장2
+    #elif: #조건문2:
+        #조건문1이거짓 조건문2가 참인경우
+
+    #else: #조건문1과 조건문2가 거짓일떄 실행되는 문장
+
+#어떤값이 -5를 가질때 val이란 변수가 양수인지 음수인지 판정코드
+val=-5
+if val>0:
+    print("양수")
+elif val <0:   
+    print("음수")
+else: 
+    print("0")
+
+
+#모든 자료형은 불 자료형으로 변환 가능하다. 
+#숫자형: 참(0이 아닌숫자) / 거짓(0인경우) 
+#문자열: 참(1개 이상의 문자가 있는경우)/ 거짓(문자가 없는경우""")
+#리스트,튜플,딕셔너리: 참(1개 이상의 값이 있는경우) / 거짓(값이 없는경우 )
+
+
+
+#3천원있으면 버스, 3천원이 없으면 걸어가는 경우
+money = True
+
+if money:
+    print("let take a bus")
+else: 
+    print("go on a walk")
+
+a=10
+
+if a>10:
+    print(100)
+else:
+    print(200)
+
+print(Data)
+
+Data = ['name','address','email','FAX'] #원하는 뱐수가 있는지 사용할떄는 in 을이용할수 있다. 
+if 'phone' in Data:
+    print("call")
+elif "email" in Data:
+    print("send a Email")
+else:
+    print("visit")
+
+
+# and / or 
+
+# A and B : A 와 B 모두 참이여야 참이된다. 
+
+# A or B : A또는 B 둘중 하나만 참이여도 참이된다. 
+
+a=10
+b=8
+
+if a >=10 and b>= 8:
+    print("AAA")
+else: 
+    pritn("BBB")
