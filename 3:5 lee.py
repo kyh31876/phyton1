@@ -229,7 +229,7 @@ for i in range(len(tables)):
 #pandas.object.to_format("address")
 
 #csv로 내보내기 
-pd.tb[0].to_csv('/Users/yuhyun/sample.csv')
+pd.tb.to_csv('/Users/yuhyun/sample.csv')
 
 #excel 내보내기 
 
