@@ -201,16 +201,35 @@ df.
 
 import pandas as pd 
 
-
-pandas.read_html("/Users/yuhyun/Downloads/sample.html")
-
 #csv 파일 불러오기 
-pandas.read_csv('/Users/yuhyun/Downloads/read_csv_sample.csv')
+tb=pd.read_csv('/Users/yuhyun/Downloads/read_csv_sample.csv')
 
 #excel파일 불러오기 
-pandas.read_xlsx('/Users/yuhyun/Downloads/남북한발전전력량.xlsx',header=None)
+pd.read_xlsx('/Users/yuhyun/Downloads/남북한발전전력량.xlsx',header=None)
 print(data)
+
+#html불러오기 
+tables=pd.read_html("/Users/yuhyun/Downloads/sample.html")
+
+print(len(tables))
+
+for i in range(len(tables)):
+    print(tables[i])
+    print('\n')
+
+
+
+
 
             #header = 0 (0번쨰줄을 변수명 .) 1(첫번쨰 줄을 변수명 )  N(변수명이 없다)
             #encoding = 'CP949'          
-# #내보내기  # pandas.to_format("address")
+
+
+#내보내기
+#pandas.object.to_format("address")
+
+#csv로 내보내기 
+pd.tb[0].to_csv('/Users/yuhyun/sample.csv')
+
+#excel 내보내기 
+
