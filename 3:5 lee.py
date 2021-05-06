@@ -109,10 +109,11 @@ exam_data={'수학':[90,80,70],'영어':[98,89,95],'음악':[85,95,100],'체육'
 df=pd.DataFrame(exam_data,index=['서준','우현','인아'])
 
 #행선택 
-    df.loc['서준']; df.iloc[0] #
-    df.loc[['서준','우현']]; df.iloc[[0,2]] #서준과 우현을 선택 
-    df.loc['서준':'우현']; df.iloc[0:2] 
 
+
+df.loc[['서준','우현']]; df.iloc[[0,2]] #서준과 우현을 선택 
+df.loc['서준':'우현']; df.iloc[0:2] 
+df.loc['서준']; df.iloc[0] 
 
 #열선택 
     df['수학'] ;df.수학 #수학선택 
@@ -195,3 +196,21 @@ df.
 
 
 
+#외부파일 읽어오기 
+# panolas.read_format("address")
+
+import pandas as pd 
+
+
+pandas.read_html("/Users/yuhyun/Downloads/sample.html")
+
+#csv 파일 불러오기 
+pandas.read_csv('/Users/yuhyun/Downloads/read_csv_sample.csv')
+
+#excel파일 불러오기 
+pandas.read_xlsx('/Users/yuhyun/Downloads/남북한발전전력량.xlsx',header=None)
+print(data)
+
+            #header = 0 (0번쨰줄을 변수명 .) 1(첫번쨰 줄을 변수명 )  N(변수명이 없다)
+            #encoding = 'CP949'          
+# #내보내기  # pandas.to_format("address")
