@@ -20,6 +20,7 @@ a=[1,2,3]
 
 #data frame 변환 
 
+from os import P_PID
 import pandas as pd 
 dict_data={'c0':[1,2,3],'c1':[4,5,6],'c2':[7,8,9],'c3':[10,11,12],'c4':[13,14,15]}
 
@@ -197,7 +198,7 @@ df.
 
 
 #외부파일 읽어오기 
-# panolas.read_format("address")
+# pandas.read_format("address")
 
 import pandas as pd 
 
@@ -219,17 +220,78 @@ for i in range(len(tables)):
 
 
 
-
-
-            #header = 0 (0번쨰줄을 변수명 .) 1(첫번쨰 줄을 변수명 )  N(변수명이 없다)
-            #encoding = 'CP949'          
+        #header = 0 (0번쨰줄을 변수명 .) 1(첫번쨰 줄을 변수명 )  N(변수명이 없다)
+        #encoding = 'CP949'          
 
 
 #내보내기
 #pandas.object.to_format("address")
 
 #csv로 내보내기 
+
+import pandas as pd 
+
+data = {'name':["Jerry",'Riah','Paul']
+'algol':['A','A+','B'],
+'basic':['C','B','B+'],
+'c++':['B+','C','C+']
+}
+
+pd= pd.DataFrame(data)
+df.set_index('name',inplace=True)
+print(df)
 pd.tb.to_csv('/Users/yuhyun/sample.csv')
 
-#excel 내보내기 
+
+
+#excel 내보내기: pandas.EXcelWriter('address') 
+#to_excel(ExcelWriter Object,sheet="sheetname")
+import pandas as pd 
+data1= {'name': ['Jerry','Riah','Paul'],'algol':['A','A+','B'],
+'basic':['C','B','B+'],'C++':['B+','C','C+']}
+
+data2= {'c0':[1,2,3],'c1':[4,5,6],'c2':[7,8,9],'c3':[10,11,12],'c4':[13,14,15]}
+
+df1=pd.DataFrame(data1)
+df1.set_index('name',inplace=True)
+
+
+df2= pd.DataFrame(data2)
+df2.set_index('c0',inplace=True)
+
+writer= pd.ExcelWriter('/Users/yuhyun/Downloads/df_excelwriter.xlsx')
+df1.to_excel(writer,sheet_name="sheet1")
+df2.to_excel(writer,sheet_name="sheet2")
+writer.save()
+
+
+
+tal=pd.read_csv('/Users/yuhyun/Downloads/auto-mpg.csv',header=None,names=['mpg','cylinders','displacement','horsepower','weight','acceleration',
+'model_year','origin','name']) #변수명이 없을때
+tal.columns=['mpg','cylinders','displacement','horsepower','weight','acceleration',
+'model_year','origin','name'] #변수명 주기 
+
+
+#앞부분 미리보기 : DataFreamObject.head(n)
+#뒤부분 미리보기 : DataFreamObject.tail(n)
+
+# 데이터 프레임의 크기 확인 : DataFreamObject.shape()
+
+#데이터프레임의 기본정보 출력 : DataFreamObject.info() 
+
+#데이터프레임의 기술 통계 요약 : DataFreamObject.describe()
+
+#열데이터 개수확인 :DataFreamObject.count()
+
+#엻 데이터 eigen value 개수 :DataFreamObject["열이름"].value_counts() option dropna=Ture (NAN제외)
+
+
+#graph
+
+
+#선그래프:DataFreamObject.plot()
+#막대 그래프 DataFreamObject.plot(kind='bar')
+#히스토그램 DataFreamObject.plot(kind='hist)
+#산점도 DataFreamObject.(x,y,kind='scateer')
+
 
