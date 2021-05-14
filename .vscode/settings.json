@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "/Users/yuhyun/opt/anaconda3/bin/python"
+    "python.pythonPath": "/Users/yuhyun/opt/anaconda3/bin/python",
+    "python.linting.prospectorEnabled": true,
+    "python.linting.enabled": true
 }
