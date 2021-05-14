@@ -209,6 +209,7 @@ tb=pd.read_csv('/Users/yuhyun/Downloads/read_csv_sample.csv')
 pd.read_xlsx('/Users/yuhyun/Downloads/남북한발전전력량.xlsx',header=None)
 print(data)
 
+
 #html불러오기 
 tables=pd.read_html("/Users/yuhyun/Downloads/sample.html")
 
@@ -294,4 +295,76 @@ tal.columns=['mpg','cylinders','displacement','horsepower','weight','acceleratio
 #히스토그램 DataFreamObject.plot(kind='hist)
 #산점도 DataFreamObject.(x,y,kind='scateer')
 
+=======
+            #header = 0 (0번쨰줄을 변수명 .) 1(첫번쨰 줄을 변수명 )  N(변수명이 없다)
+            #encoding = 'CP949'          
+# #내보내기  # pandas.to_format("address")
 
+
+ #누락데이터 개수확인: info()  value_count()
+ 
+ #누락데이터 여부확인 : isnull() ;결측이면 TRUE  notnulll();  결측이면  false
+ 
+ 
+import seaborn as sns 
+df= sns.load_dataset('titanic')
+ 
+nan_deck=df['deck'].value_counts(dropna=True)
+ 
+print(nan_deck)
+df['deck'].isnull() #특정변수에대해 결측여부 확인 
+print(df.head().isnull())
+print(df.head().notnull())
+
+print(df.head().isnull().sum(axis=0))
+
+
+#object.dropna(axis=행/열), thresh= NAN 개수:조건에 맞는 행/열 제거) 변수를 제거 
+#object.dropna(subset=행/열 이름, how= 'any'; 하나의 NaN 이 있을떄 삭제 , all; 모두 NaN일떄 삭제 ) 변수안의 데이터를 제거 
+
+df_thresh= df.dropna(axis=1, thresh=500)
+df_thresh.info()
+print(df_thresh.columns)
+
+df_age=df.dropna(subset=['age'], how='any',axis=0)
+
+print(len(df_age))
+
+
+#누락데이터 대체 : object.fillna(대체값, inplace=True/False); 대체값으로 NaN을 대체
+# object.fillna(method="ffill",inplace=True/Fasle); NaN바로 앞으값으로Nan 값을 대체 
+
+
+#age값의 평균값을 age에 대체 
+df=sns.load_dataset('titanic')
+mean_age=df['age'].mean(axis=0)
+df['age'].fillna(mean_age,inplace=True)
+print(df['age'].head(10))
+
+
+#embark_town 825부터 830 까지 결측값을 최빈값으로 대체 
+df=sns.load_dataset('titanic')
+print(df['embark_town'][825:830])
+most_freq=df['embark_town'].value_counts(dropna=True).idxmax()
+print(most_freq)
+df['embark_town'].fillna(most_freq,inplace=True)
+print(df['embark_town'][825:830])
+
+
+df['embark_town'].fillna(method='ffill',inplace=True)
+
+#중복데이터 여부 확인 
+#duplicates() #중복되는 행이면 true 반환 , 처음나오는 행에 대해서는 false반환
+#object.drop_duplicates() #전체 데이터셋을 기준으로 중복된행제거 
+
+
+#object.drop_duplicates(subset=기준열); 선택된 열을 기준으로 중복된행을 제거 
+
+import pandas as pd
+
+df=pd.DataFrame({'c1':['a','a','b','a','b'],
+                 'c2':[1,1,1,2,2],
+                 'c3':[1,1,2,2,2]})
+
+df2=df.drop_duplicates()
+df3=df.drop_duplicates(subset=['c2','c3'])
