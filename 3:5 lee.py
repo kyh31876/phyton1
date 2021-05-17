@@ -283,28 +283,71 @@ tal.columns=['mpg','cylinders','displacement','horsepower','weight','acceleratio
 #데이터프레임의 기술 통계 요약 : DataFreamObject.describe()
 
 #열데이터 개수확인 :DataFreamObject.count()
+tal.count() #유효한 값만반환 
 
-#엻 데이터 eigen value 개수 :DataFreamObject["열이름"].value_counts() option dropna=Ture (NAN제외)
 
+#열 데이터 eigen value 개수 :DataFreamObject["열이름"].value_counts()
+#option dropna=Ture (NAN제외)
+tal.count[].value_counts()
+
+#평균값 
+tal.mean() #계산결과를 series object 로 반환 
+tal['mpg'].mean()
+#중간값 
+tal.meaian
+tal['mpg'],median()
+
+#최대값 
+tal.mean()
+tal['mpg'].man()
+#최소값 
+tal.min()
+tal['mpg'].min()
+
+#표준편차 
+tal.min()
+tal['mpg'].std()
+
+#상관계수
+tal.corr()
+tal[['mpg','origin']].corr() #적어도 2개 이상으로 구성되어야함 
+
+tal.head(4)
 
 #graph
-
-
 #선그래프:DataFreamObject.plot()
-#막대 그래프 DataFreamObject.plot(kind='bar')
-#히스토그램 DataFreamObject.plot(kind='hist)
-#산점도 DataFreamObject.(x,y,kind='scateer')
 
-=======
+#막대 그래프 DataFreamObject.plot(kind='bar')
+
+#히스토그램 DataFreamObject.plot(kind='hist)
+
+#산점도 DataFreamObject.(x,y,kind='scateer')
             #header = 0 (0번쨰줄을 변수명 .) 1(첫번쨰 줄을 변수명 )  N(변수명이 없다)
             #encoding = 'CP949'          
 # #내보내기  # pandas.to_format("address")
 
 
+import pandas as pd 
+df=pd.read_excel("/Users/yuhyun/Downloads/남북한발전전력량.xlsx")  
+
+df_ns=df.iloc[[0,5],3:] #행에는 0번쨰 5번쨰자료를 열에는 3번째부터 끝까지 
+df_ns.index=['south','north'] #인덱스 네이밍 
+
+df_ns.columns=df_ns.columns.map(int) #열이름을 정수형으로 맵변환 
+print(df_ns.head())
+
+df_ns.plot()
+
+tdf_ns=df_ns.T #transpose 시키기 
+print(tdf_ns.head())
+
+df.plot(x='weight',y='mpg',kind=scatter()) #산점도그리기 
+df[['mpg','weight']].plot(kind='box') #mpg와 weight로 box형태로 그리기 
+
  #누락데이터 개수확인: info()  value_count()
  
  #누락데이터 여부확인 : isnull() ;결측이면 TRUE  notnulll();  결측이면  false
- 
+
  
 import seaborn as sns 
 df= sns.load_dataset('titanic')
@@ -316,6 +359,8 @@ df['deck'].isnull() #특정변수에대해 결측여부 확인
 print(df.head().isnull())
 print(df.head().notnull())
 
+print(df.shape())
+print(df.dtypes())
 print(df.head().isnull().sum(axis=0))
 
 
@@ -368,3 +413,5 @@ df=pd.DataFrame({'c1':['a','a','b','a','b'],
 
 df2=df.drop_duplicates()
 df3=df.drop_duplicates(subset=['c2','c3'])
+
+
