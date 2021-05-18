@@ -415,3 +415,13 @@ df2=df.drop_duplicates()
 df3=df.drop_duplicates(subset=['c2','c3'])
 
 
+start, end = 1,41
+  
+# iterating each number in list
+for num in range(start, end + 1):
+      
+    # checking condition
+    if num % 2 == 0:
+        print(num, end = ",")
+
+        
