@@ -424,4 +424,33 @@ for num in range(start, end + 1):
     if num % 2 == 0:
         print(num, end = ",")
 
-        
+#자료변환 
+#Object.dtypes; 자료형확인 
+#Object.unique(); 열의 고유값 확인 
+#Object.astype('변경할 자료명') ; 선택한 자료형으로  변환 
+
+
+#구간분할 
+    #Object.cut(x=데이터 배열, bins=경계값 리스트, label=bin 이름, include_lowest=True/False)
+    # cut option : lowest =True 첫경계값 포함 False(첫 경계값미포함 ) 
+
+
+#더미변수; Object.get_dummies(범주형)
+
+#열순서 바꾸기 Object[재구성한 열이름의 리스트]
+
+
+
+#데이터 프레임 연결 : Object.concat(데이터 프레임의 리스트, ignore_index=True/False
+# axis=0/1,join='outer'/'inner')
+#options : axis=0 (행연결) 1(열연결), join='outer' (합집합으로 연결)
+#'inner'(교집합으로 연결 )
+
+#대이터 프레임 병합:merge()
+#pandas.merge(df_lect,df_right, how='outer'/'inner', on=기준변수, how='left'/'right',left_on=,right_on=)
+#options how=join='outer' (합집합으로 연결) 'inner'(교집합으로 연결 )
+#on=변수명(기준이 되는 변수, None일경우 공통의 모든열 기준), how='left'(왼쪽의 데이터프레임 
+#키에속하는 데이터값기준으로 병합) 'right'(오른쪽 기준으로 병합)
+#left_on=변수명(좌우 다른 키를 줄경우 왼쪽데이터프레임 키 ) right_on=변수명(좌우다른 키를 
+# 줄경우 오른쪽 데이터 프레임키)
+
