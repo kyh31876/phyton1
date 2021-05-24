@@ -30,7 +30,7 @@ if number % 2 == 0:
     print("짝수")
 else:
     print("홀수")
-    
+
     
     
 #가격 할인 행사에 다른 상품 구입 가격 구하기
@@ -82,25 +82,28 @@ else:
     
     
 # 점수를 입력 받아 학점을 출력하는 프로그램
-score = int(input("점수를 입력 :"))
-if 90 <= score <= 100:
-    print("A")
-elif 80 <= score < 90:      
-    print("B")
-elif 70 <= score < 80:
-    print("C")
-else:
-    print("F")
-if score >= 90:
-    print("수")
-elif score >= 80:
-    print("우")
-elif score >= 70:
-    print("미")
-elif score >= 60:
-    print("양")
-else:
-    print("가")
+def new_func():
+    score = int(input("점수를 입력 :"))
+    if 90 <= score <= 100:
+        print("A")
+    elif 80 <= score < 90:      
+        print("B")
+    elif 70 <= score < 80:
+        print("C")
+    else:
+        print("F")
+    if score >= 90:
+        print("수")
+    elif score >= 80:
+        print("우")
+    elif score >= 70:
+        print("미")
+    elif score >= 60:
+        print("양")
+    else:
+        print("가")
+
+new_function()
 
 
 #달의 일수를 구하기
@@ -282,8 +285,6 @@ for letter in "python":
     print(letter, end="")
 else:
     print("출력완료")
-
-
 #continue   
 
 #현재 수행중인 반복을 중단하고 다음 반복으로 곧장 넘어감
