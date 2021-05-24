@@ -16,6 +16,7 @@
 
 #str() : 숫자데이터를 문자열로
 
+
 #임의의 문자열을 입력받아 문자와 숫자의 개수 구하기
 nchar =0; ndigit=0; nother=0;
 massage= input("문자열 입력:")

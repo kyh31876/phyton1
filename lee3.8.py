@@ -36,11 +36,10 @@ m50, m10))
 
 #0 ~ 24시간 중 하나를 입력받아 인사하기 
 nowtime = int(input("지금 시간은 (0-24): "))
-hour1 = nowtime%2
 
-print("지금시간은 %d 시 입니다." %hour1)
-
-
+if hour1 =nowtime%2
+    print("지금시간은 %d 시 입니다." %hour1)
+nowtime = int(input("지금시간은 (0-24):"))
 
 
 
@@ -60,10 +59,8 @@ print(" %d 피트 입니다." %feet)
 
 
 num1 = input("첫번째 operand:") 
-
 num2 = input("두번쨰 operand:")
 operator = input("Operator (+, -, *, /):")
-
 num1 = float(num1)
 num2 = float(num2)
 
