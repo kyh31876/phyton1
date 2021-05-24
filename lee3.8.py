@@ -36,10 +36,9 @@ m50, m10))
 
 #0 ~ 24시간 중 하나를 입력받아 인사하기 
 nowtime = int(input("지금 시간은 (0-24): "))
+nowtime%2
+print("지금시간은 %d 시 입니다." %hour1)
 
-if hour1 =nowtime%2
-    print("지금시간은 %d 시 입니다." %hour1)
-nowtime = int(input("지금시간은 (0-24):"))
 
 
 
