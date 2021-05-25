@@ -97,3 +97,47 @@ plt.show()
 #ax.set_ylabel(,size=)
 #ax.set_xticklabels(,rotation=)
 #ax.tick_params(axis=,labelsiez=)
+
+
+#회귀선이 있는 산점도 
+#seaborn.regplot(x= x축 변수, y = y축변수, data=데이터, ax=axe obejct , fit_reg= True/ False )
+
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+titanic = sns.load_dataset('titanic')
+
+sns.set_style('darkgrid')
+fig=plt.figure(figsize=(15,5))
+ax1=fig.add_subplot(1,2,1) # 1행 2열의 첫번째 위치 
+ax2=fig.add_subplot(1,2,2)
+
+sns.regplot(x='age', y='fare', data=titanic, ax=ax1)
+sns.regplot(x='age', y='fare', data=titanic, ax=ax2, fig_reg=False)
+plt.show()
+
+#displot()
+#seaborn.displot(변수,hist=True/False, ,kde=True/False, fig
+# ax=axe Object, color=)
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+titanic = sns.load_dataset('titanic')
+sns.set_style('darkgrid')
+
+fig=plt.figure(figsize=(15,5))
+ax1=fig.add_subplot(1,3,1)
+ax2=fig.add_subplot(1,3,2)
+ax3=fig.add_subplot(1,3,3)
+
+sns.displot(titanic['fare'], ax=ax1)
+sns.displot(titanic['fare'], hist=True, ax=ax2)
+sns.displot(titanic['fare'],kde=False, ax=ax3)
+
+ax1.set_title('titanic fare-hist.kde')
+ax2.set_title('titanic fare-kde')
+ax3.set_title('titanic fare-hist')
+
+plt.show()
