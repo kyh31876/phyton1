@@ -43,7 +43,7 @@ if length % 2==1:
     letter=word[length//2]
     print("중간글자: %s" %letter)
 else:
-    letter1= word[(length//2)-1]
+    letter1=word[(length//2)-1]
     letter2=word[(length//2)]
     print("중간글자: %s" %(letter1+letter2))
 
