@@ -141,3 +141,53 @@ ax2.set_title('titanic fare-kde')
 ax3.set_title('titanic fare-hist')
 
 plt.show()
+
+
+#stat.ttest_1samp()함수의 활용 
+#from scipy.stats import ttest_1samp
+#from scipy.stats import shapiro
+#shapiro(data) #정규성 검정 
+#stats.ttest_1samp(data, popmean=검정값) #ttest_1samp option; popmean=검정하고자 하는 모평균의 값
+
+
+import pandas as pd 
+from scipy import stats 
+data=pd.DataFrame({'v1':[35,40,12,15,21,14,46,10,28,48,16,30,
+                         32,48,31,22,12,39,19,25]})
+
+
+from scipy.stats import shapiro #평균 차이 검증 
+shapiro(data)
+
+from scipy.stats import ttest_1samp
+print("one_sample 평균)",data['v1'].mean())
+result1=stats.ttest_1samp(data,popmean=25)
+print("result 결과) statistic: %.3f, pvalue:%.3f"%result1)
+
+#stat.test_ind() 독립표본에의한 두모평균의 비교 
+#from scipy import stats 
+#from scipy.stat import ttest_ind
+#stat.levene(data1,data2)
+#stats.test_ind(data1,data2,equal_var=True ) #equal_var; 같은분산주기  
+
+from sklearn import datasets 
+dataset= datasets.load_iris() 
+data=dataset.data
+
+import pandas as pd 
+a=pd.DataFrame(data)
+data1=a.iloc[0:51,0];data2=a.iloc[51:101,0]
+
+from scipy import stats 
+from scipy.stats import shapiro 
+shapiro(data1)
+shapiro(data2)
+stats.levene(data1,data2) #등분산검정
+
+from scipy.stats import ttest_ind
+print("one_sample 평균1)", data1.mean())
+print("one_sample 평균2)", data2.mean())
+print("one_sample 표준편차1)", data1.std())
+print("one_sample 표준편차2)", data2.std())
+reslut=stats.ttest_ind(data1,data2)
+print("t검정통계량: %.5f, p값:%.5f"%result )
