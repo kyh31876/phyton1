@@ -191,3 +191,27 @@ print("one_sample 표준편차1)", data1.std())
 print("one_sample 표준편차2)", data2.std())
 reslut=stats.ttest_ind(data1,data2)
 print("t검정통계량: %.5f, p값:%.5f"%result )
+
+
+count = int(input("숫자를 입력하세요:"))
+arg = [str(n) for n in range(1,count+1)] # string 타임으로 리스트 생성 
+
+
+count = int(input("숫자를 입력하세요:"))
+arg = [str(n) for n in range(1,count+1)] # string 타임으로 리스트 생성 
+
+
+for i in range(len(arg)):
+    a='' #안넣으면 clap 으로 도배됨 
+    for j in arg[i]:
+        if j in ('3','6','9'):
+            a +=  'clap'
+            arg[i] =a
+print(arg) 
+count=int(input("숫자를 입력:"))
+for n in range(1,count+1):
+    c=str(n).count('3')+str(n).count('6')+str(n).count  ('9')
+    if c==0:
+        print(n)
+    else:
+        print('*'*c)

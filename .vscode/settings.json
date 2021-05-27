@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/Users/yuhyun/opt/anaconda3/bin/python",
+    "python.pythonPath": "/usr/bin/python3",
     "python.linting.prospectorEnabled": true,
     "python.linting.enabled": false,
     "jupyter.jupyterServerType": "local"
