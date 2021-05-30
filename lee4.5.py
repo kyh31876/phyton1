@@ -59,12 +59,8 @@ else:
 
 print("임금 : %.2f 원 " %salary)
 
-
-
-
 #elif: 2개이상의 조건을처리, 
 #else : 어떠한 조건에도 해당하지 않는 경우, 가장마지막에 사용
-
 
 
 
@@ -82,7 +78,7 @@ else:
     
     
 # 점수를 입력 받아 학점을 출력하는 프로그램
-def new_func():
+def new_function():
     score = int(input("점수를 입력 :"))
     if 90 <= score <= 100:
         print("A")
@@ -162,6 +158,8 @@ while count <= 10:
     score = int(input("학생 점수를 입력 :"))
     if score >= 80:
         passes += 1
+    if score == 0:
+        break
     else:
         failure += 1
     count += 1
@@ -213,6 +211,7 @@ for number in [1, 2, 3, 4, 5]:
 #리스트의 개수만큼 차례로 반복하면서 score 변수에 하나씩 저장
 for score in [100, 98, 85, 70]:
     print(score)
+
 #in 다음의 문자열 길이 만큼 반복하면서 각 문자를 letter 변수에 저장
 for letter in "hello":
     print(letter)
@@ -285,8 +284,11 @@ for letter in "python":
     print(letter, end="")
 else:
     print("출력완료")
-#continue   
 
+
+
+
+#continue   
 #현재 수행중인 반복을 중단하고 다음 반복으로 곧장 넘어감
 #반복문의 시작 부분으로 돌아가 루프를 계속 수행
 #루프의 나머지 부분은 건너 띄고 넘어감
@@ -296,29 +298,29 @@ else:
 for letter in "python":
     if letter == "t":
         continue
-    print(letter, end="")
+        print(letter, end="")
 else:                   
     print("출력완료")
                 
 for letter in "python":
     if letter == "t":
         print(letter, end="")
-else:
-    print("출력완료")
+    else:
+        print("출력완료")
     
     
 #1에서 20까지의 수중에서 2의 배수와 3의 배수를 제외한 수 구하기
 for number in range(1, 21):
     if number % 2 == 0 or number % 3 == 0:
         continue
-print(number, end="")
+    print(number, end=",")
 
 
 #숫자 건너뛰기
 for count in range (1,6):
-     if count == 3:
+    if count == 3:
          continue
-     print("count=", count)
+    print("count=", count)
 
 # '\'연산은 현재라인과 다음라인을연결 , '*'연산은 문자 반복을 의미 
 
@@ -335,12 +337,12 @@ print("h" in massage)
 # %d 정수형 , $f 실수형, %s  문자형, %.nf  소수 n자리까지 실수출력 
 
 
-
 #입력된 문자열 거꾸로 
 s = input("Enter a string: ")
 print(s[::-1])
 
 #입력한 주민번호 에서 생년월일 추출하여 출력 
+
 import sys 
 idnumber= input("주민번호를 '-'없이 입력:")
 
@@ -355,17 +357,16 @@ month=idnumber[2:4]
 day=idnumber[4:6]
 print("%s년 %s월 %s일 " %(year,month,day))
 
-
+len(idnumber[:5])
 
 #len() : 문자열의 길이를 구함 
 
-
-def stdInfo(rrn):
-    while len(rrn) !=7:
-        print('7자리가 아닙니다. 다시 입력해주세요.')
-        rrn = input('주민등록번호 7자리를 입력하세요 : ')
-        if len(rrn) == 7:
-            break
+stdInfo(rrn):
+while len(rrn) !=7:
+    print('7자리가 아닙니다. 다시 입력해주세요.')
+    rrn = input('주민등록번호 7자리를 입력하세요 : ')
+    if len(rrn) == 7:
+        break
 
     #앞 2자리 이용하여 나이 계산
     if int(rrn[:2]) < 21 and int(rrn[6]) in (3, 4) :
@@ -389,16 +390,16 @@ def stdInfo(rrn):
 
 #문자열.split() *important, 문자열에서 부분문자열을 특정 구분문자로 분리
 massage= "Hello Python Korea"
-message.split("")
-
+massage.split("")
 
 #문자열.splitless() : 문자열에서 줄바꿈이 표함된 문자를 행단위로 분리 
+
+massage.split(",")
 
 #구분문자.join 인수에서 지정한 문자열이나 리스트의 각항목들에 구분문자를 중간에 삽입 하여 하나의 문자열을 만들어 변환 
 
 a= [1,2,[3,4]]
 a[[2][0]]
-
 
 #range 
 list(range(0,3))
@@ -408,13 +409,10 @@ score =input("점수를 (-)입력:")
 total= 0 
 for item in score.split("-"):
     total += int(item)
-
-print("총점 : %d" %total)
-
-
+    print("총점 : %d" %total)
+    
 #리스트의 전체 요소를 가져오기 위한 방법:
 #for 문이나 while 문을 사용하여 리스트 요소를 차례로 가져옴
-
 
 #서로다른 리스트 요소를 반복문으로 출력
 person = ["홍길동" , 25 , "박지성" , 35 , "박찬호" ,32]
