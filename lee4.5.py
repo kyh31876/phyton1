@@ -394,7 +394,8 @@ massage.split("")
 
 #문자열.splitless() : 문자열에서 줄바꿈이 표함된 문자를 행단위로 분리 
 
-massage.split(",")
+massage=massage.split(",")
+
 
 #구분문자.join 인수에서 지정한 문자열이나 리스트의 각항목들에 구분문자를 중간에 삽입 하여 하나의 문자열을 만들어 변환 
 
@@ -409,8 +410,8 @@ score =input("점수를 (-)입력:")
 total= 0 
 for item in score.split("-"):
     total += int(item)
-    print("총점 : %d" %total)
-    
+print("총점 : %d" %total)
+
 #리스트의 전체 요소를 가져오기 위한 방법:
 #for 문이나 while 문을 사용하여 리스트 요소를 차례로 가져옴
 
@@ -422,6 +423,7 @@ for count in range(len(person)):
     else: 
         print("나이: %d" %int(person[count]))
 
+print(person[count])
 
 
 
@@ -431,13 +433,37 @@ fibo = list(range(10))
 fibo[0]=1
 fibo[1]=1
 for count in range(2,10):
-    fibo[count] = fibo[count-2] + fibo[count-1]
-    
+    fibo[count] = fibo[count-2] + fibo[count-1] 
     
 print("피보나치 :", fibo)
 
+
+#리스트의 결합
+number1=[10,20,30]; number2=[40,50,60]
+number1 + number2 #두개의 리스트 합치기 
+number1 * 3 #리스트 반복하기 
+
+
 #리스트의 분리 
-number1, *number2 = [10,20,30,40,50]
+number1,*number2 = [10,20,30,40,50]
+print(number2)
+print(number1)
+*number1, number2=[10,20,30,40,50]
+print(number1)
+print(number2)
+
+
+number1= [10,20,30]
+number2=[40,50,60]
+numbers=number1+ number2
+print(numbers)
+print(number1, *number2)
+
+numbers=number1, *number2
+print(numbers)
+
+*number1, number2= numbers
+print(numbers)
 
 
 #max(): 리스트 내의 가장 큰요소를찾아 변환  
@@ -446,8 +472,30 @@ number1, *number2 = [10,20,30,40,50]
 #index method:  변수명.함수명(옵션) ;
 #  변수명.index(찾을요소, 찾을위치)
 
+93 in score 
+score = [85,93,98,75,65,90]
+
+score.index(98,2) #
+score.count(93) #특정데이터가 몇개나있는지 확인 
 #count method: 변수명.count(찾을요소) 
  
+
+
+#enumerate() 함수; 순차타입의 자료를 입력받아 요소와 인덱스를 동시에 이용 
+score = [100,98,75,86,50]
+for index in range(len(score)):
+    print(index, score[index])
+
+for index, item in enumerate(score):
+    print(index, item)
+
+
+#이름과 성별로 구성된 리스트에서 남녀수와 이름을 출력 
+person =["홍길동","남","박지성","남","김연아","여","박지성","남"]
+
+print("남자: $d명" %person.count("남"))
+print("여자:%d명" %person.count("여"))
+
 # list.append(data): 리스트마지막요소로 새로운요소 추가 
 nation=[] #새로운 리스트를 생성할경우 먼저 공백리스트를 먼저
 nation.append("taiwan")
@@ -470,14 +518,14 @@ nation=["taiwan","china"]
 nation.extend(["japan","korea"])
 
 nation.insert(1,"USA")
-
+print(nation)
 
 
 #학생 5명의 점수를 입력받아 리스트에 저장하고 평균구하기 시험문제(문자를 숫자로)
 
 student =[]
 total =0 
-for count in range(5):
+for count in range(5): #5번째까지 점수입력 
     score =int(input("점수를 입력 :"))
     student.append(score)
     total += score
@@ -506,16 +554,23 @@ print(a.sort()) #정렬해서 저장까지 할떄
 
 
 #list.pop(): 인수를 지정하지 않을경우 리스트의 마지막 요소를 찾아서 삭제, 삭제후의 리스트는 변경됨 
-
-
+a=[1,2,4]
+a.pop()
+print(a)
 #list.pop(index):리스트 내의 특정요소삭제
+numbers=[10,20,30,40,50]
+del_item=numbers.pop() 
+print(del_item, numbers)
+
+
+
 
 #5명의 이름 차례로 입력 하고 list 보여주기 삭제할 이름을 입력한후 삭제 
-
 names =[] 
 name_str = input("다섯명 이름 입력 :") 
 name_str.split(',')
 rmv=input("삭제할 이름입력 :")
+
 if rmv in names:
     names.remove(rmv)
     print(names)  

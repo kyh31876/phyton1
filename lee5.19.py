@@ -200,18 +200,74 @@ arg = [str(n) for n in range(1,count+1)] # string 타임으로 리스트 생성
 count = int(input("숫자를 입력하세요:"))
 arg = [str(n) for n in range(1,count+1)] # string 타임으로 리스트 생성 
 
+#대응비교(대응 표본+ 검정) 두집단 평균 비교 
+#독립: 독립표본 t검정 이름 독립x :  두집단의 자료에 차이를 가지고 
 
-for i in range(len(arg)):
-    a='' #안넣으면 clap 으로 도배됨 
-    for j in arg[i]:
-        if j in ('3','6','9'):
-            a +=  'clap'
-            arg[i] =a
-print(arg) 
-count=int(input("숫자를 입력:"))
-for n in range(1,count+1):
-    c=str(n).count('3')+str(n).count('6')+str(n).count  ('9')
-    if c==0:
-        print(n)
-    else:
-        print('*'*c)
+#from scipy import stats 
+#from scipy.stats import ttest_rel
+#stats.ttest_rel(data1, data2)
+
+
+before=[0.430,0.266,0.567,0.531,0.707,9.716,0.651,0.589,0.439,0.723]
+after=[0.415,0.238,0.390,0.410,9.605,0.609,0.632,0.523,0.411,0.612]
+
+import pandas as pd
+data=pd.DataFrame({'before':[0.430,0.266,0.567,0.531,0.707,9.716,0.651,0.589,0.439,0.723],
+'after':[0.415,0.238,0.390,0.410,9.605,0.609,0.632,0.523,0.411,0.612]})
+
+from scipy.stats import shapiro
+shapiro(data['before'])
+shapiro(data['after'])
+
+from scipy.stats import ttest_rel
+result= ttest_rel(data['before'], data['after'])
+
+print("one_sample mean1)", data['before'].mean())
+print("one_sample mean2)", data['after'].mean())
+print("one_sample sd1)", data['before'].std())
+print("one_sample sd2)", data['after'].std())
+
+
+print('t검정 통계량:%.5f, p값:%.5f' %result )
+
+#onw -away ANOVA (븐신븐석 ) : 두집단 이상의 평균차이를 검정 
+# assumeing : i) 자료의 정규성 =>shapiro ii) 분산이 동일 = levene
+
+
+# f_oneway와 smf.ols() 및 sm.stats.anova_lm()함수의 이용 
+
+#from scipy.stats import f_oneway f_oneway 를 활용한 일원분산분삭
+#f_oneway(data1,data2,data3) :F 검정 통계량과 P-value출력
+#from statsmodels.stats.multicomp import pairwise_tukeyhsd
+#posthoc = pairwise_tukeyhsd(반응변수,인자,alpha)
+#print(posthoc)
+
+#import statsmodel.api as sm 
+#from statsmodels.fomula.api import ols 
+#from statsmodels.fomula.api import smf as
+#lmFit = smf.ols("반응변수-인자",data).fit())
+#table=sm.stats.anova_Im(lmFit)
+#print(table)
+
+
+
+#iris 자료의 sepla.length의 그룹간의 평균의 차이여부검점
+
+from sklearn import datasets 
+dataset= datasets.load_iris() 
+data=dataset.data
+
+import pandas as pd 
+a=pd.DataFrame(data)
+data1=a.iloc[0:51,0];data2=a.iloc[51:101,0];data3=a.iloc[101:,0]
+
+from scipy import stats 
+from scipy.stats import shapiro 
+shapiro(data1)
+shapiro(data2)
+shapiro(data3)
+stats.levene(data1,data2,data3) #등분산검정
+
+from scipy.stats import f_oneway
+result= f_oneway(data1,data2,data3)
+print("F검정통계량: %.5f, p값:%.5f" %result)
